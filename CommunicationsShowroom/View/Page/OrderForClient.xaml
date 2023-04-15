@@ -1,0 +1,53 @@
+﻿<Page x:Class="CommunicationsShowroom.View.Page.OrderForClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CommunicationsShowroom.View.Page"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrderForClient">
+
+    <Grid Background="#ACE1AF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="380"/>
+        </Grid.ColumnDefinitions>
+        <Button Style="{DynamicResource ButtonStyleAll}"  Height="60" Width="60"  Background="#47ba44"  Grid.Column="0" VerticalAlignment="Top" Margin="10" HorizontalAlignment="Left">
+            <Image  Source="/Image/shop.png" Margin="3" />
+        </Button>
+        <Button Style="{DynamicResource ButtonStyleAll}" Background="#47ba44"  Margin="10" Height="60" Width="60"  Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" >
+            <Image  Source="/Image/me.png"  Margin="3" />
+        </Button>
+        <Label
+            Grid.Column="1"
+            VerticalAlignment="Top"
+            Content="Корзина :"
+            Foreground="Black"
+            FontSize="20"
+            />
+        <ListView x:Name="ners" Background="#a2a5a6"
+                  SelectedItem="{Binding SelectedUser}"
+                  HorizontalAlignment="Right"
+                  Grid.Column="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center">
+                        <Image Source="{Binding Image}"
+                               Width="100" Height="100"/>
+                        <Run Text="{Binding Name}"/>
+                        <CheckBox HorizontalAlignment="Right"/>
+                    </TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ScrollViewer 
+                          Grid.Column="2" Margin="330,0,0,0">
+            <StackPanel>
+                <TextBlock Text="{Binding Text}" Margin="1" FontSize="15"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

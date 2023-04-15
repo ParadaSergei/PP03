@@ -1,0 +1,71 @@
+﻿<Window x:Class="CommunicationsShowroom.View.ClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommunicationsShowroom.View"
+        mc:Ignorable="d"
+        Icon="/Image/icon.ico"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowChrome.IsHitTestVisibleInChrome="True"
+        Title="Клиент" Height="490" Width="800" AllowsTransparency="True" Background="Transparent">
+    <Border  CornerRadius="30" Background="#ACE1AF" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <DockPanel HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+            LastChildFill="True"
+            Height="30"
+            Grid.Row="0">
+                <Grid DockPanel.Dock="Right"
+                   Background="#573595" MouseDown="Drag">
+                    <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Height="30">
+                        <Button x:Name="MinimizeButton"
+                    KeyboardNavigation.IsTabStop="False"
+                    Width="20"
+                    Height="20"
+                    Background="#47ba44"
+                    Click="MinimizeWindow_Click"
+                    Margin="4,0,4,0" Style="{DynamicResource ButtonStyleAll}">
+                            <Image  Source="/Image/minimize.png"  Width="10" Height="10" HorizontalAlignment="Center"/>
+                        </Button>
+                        <Button x:Name="CloseButton"
+                    KeyboardNavigation.IsTabStop="False"
+                    Width="20"
+                    Height="20"
+                    Margin="4,0,4,0"
+                    Background="#47ba44"
+                    Click="CloseApp_Click" Style="{DynamicResource ButtonStyleAll}">
+                            <Image Source="/Image/close.png" Width="10" Height="10" HorizontalAlignment="Center"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+            <Frame
+               Background="#ACE1AF"
+                x:Name="FramePageClient"
+                Grid.Row="1"  
+                Margin="15"
+                />
+            <Button
+                    Click="backButton_Click"
+                    x:Name="BackButton"
+                    Width="20"
+                    Height="20"
+                    Background="#47ba44"
+                    Margin="4,0,770,0"     
+                    KeyboardNavigation.IsTabStop="False" Style="{DynamicResource ButtonStyleAll}">
+                <Image Source="/Image/back.png"/>
+            </Button>
+            
+        </Grid>
+    </Border>
+</Window>
