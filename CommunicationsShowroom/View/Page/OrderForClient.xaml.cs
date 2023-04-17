@@ -37,15 +37,14 @@ namespace CommunicationsShowroom.View.Page
             ObservableCollection<Date> userList = new ObservableCollection<Date>();
 
             foreach (var item in info.GetFiles())
-            {
-
-
+            {        
                 Date user = null;
 
                 if (item.Name == "zFlip4.jpg")
                 {
                     user = new Date()
                     {
+                      
                         Name = "Samsung Z Flip 4",
                         Image = new BitmapImage(new Uri(item.FullName))
                     };

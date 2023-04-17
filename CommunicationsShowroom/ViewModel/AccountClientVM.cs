@@ -11,6 +11,8 @@ namespace CommunicationsShowroom.ViewModel
         private ObservableCollection<AccountClient> _accountClients;
 
         private AccountClient _selectedAccountClient;
+
+
         public AccountClient SelectedAccountClient
         {
             get => _selectedAccountClient;
@@ -34,7 +36,6 @@ namespace CommunicationsShowroom.ViewModel
                 OnPropertyChanged(nameof(AccountClients));
             }
         }
-
 
         public void LoadData()
         {

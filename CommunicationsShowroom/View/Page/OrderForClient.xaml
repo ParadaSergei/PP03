@@ -20,6 +20,7 @@
         <Button Style="{DynamicResource ButtonStyleAll}" Background="#47ba44"  Margin="10" Height="60" Width="60"  Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Left" >
             <Image  Source="/Image/me.png"  Margin="3" />
         </Button>
+
         <Label
             Grid.Column="1"
             VerticalAlignment="Top"
@@ -35,16 +36,16 @@
                 <DataTemplate>
                     <TextBlock HorizontalAlignment="Center"
                                VerticalAlignment="Center">
+                        <CheckBox HorizontalAlignment="Left"/>
                         <Image Source="{Binding Image}"
                                Width="100" Height="100"/>
                         <Run Text="{Binding Name}"/>
-                        <CheckBox HorizontalAlignment="Right"/>
                     </TextBlock>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <ScrollViewer 
-                          Grid.Column="2" Margin="330,0,0,0">
+            Grid.Column="2" Margin="330,0,0,0">
             <StackPanel>
                 <TextBlock Text="{Binding Text}" Margin="1" FontSize="15"/>
             </StackPanel>

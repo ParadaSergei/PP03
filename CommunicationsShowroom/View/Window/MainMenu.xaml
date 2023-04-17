@@ -135,6 +135,19 @@
                     KeyboardNavigation.IsTabStop="False" Style="{DynamicResource ButtonStyleAll}">
                 <Image Source="/Image/back.png"/>
             </Button>
+            <Button
+            Width="150"
+            Grid.Row="1"
+            Height="40"
+            FontSize="17"
+            Grid.Column="1"
+            Margin="0,250,0,0"
+            Name="UpdatsButton"
+            Click="UpdatsButton_Click"
+            Content="Обнавить таблицу"
+            Background="#8c82af"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center" Style="{DynamicResource ButtonStyleAll}"/>
         </Grid>
     </Border>
 </Window>

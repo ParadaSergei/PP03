@@ -204,22 +204,22 @@ namespace CommunicationsShowroom.View.Window
                     break;
                 case 3:
                     {
-                        _devicePageVM.DeleteData();
+                        _accountEmployeesVM.DeleteData();                      
                     }
                     break;
                 case 4:
                     {
-                        _infoClientVM.DeleteData();
+                        _salesVM.DeleteData();
                     }
                     break;
                 case 5:
                     {
-                        _salesVM.DeleteData();
+                        _infoClientVM.DeleteData();
                     }
                     break;
                 case 6:
-                    {   
-                        _accountEmployeesVM.DeleteData();
+                    {
+                        _infoEmployeesVM.DeleteData();
                     }
                     break;
                 default:
@@ -320,7 +320,7 @@ namespace CommunicationsShowroom.View.Window
                     break;
                 case 6:
                     {
-                        var changeInfoEmployees = new ChangeInfoEmployees((DataContext as InfoEmployeesVM).SelectInfoEmployees);
+                        var changeInfoEmployees = new ChangeInfoEmployees(_infoEmployeesVM.SelectInfoEmployees);
                         changeInfoEmployees.Show();
                     }
                     break;
@@ -330,5 +330,49 @@ namespace CommunicationsShowroom.View.Window
             }
         }
 
+        private void UpdatsButton_Click(object sender, RoutedEventArgs e)
+        {
+            switch (TableComboAdmin.SelectedIndex)
+            {
+                case 0:
+                    {
+                        _devicePageVM.LoadData();
+                    }
+                    break;
+                case 1:
+                    {
+                        _repairOrdersVM.LoadData();
+                    }
+                    break;
+                case 2:
+                    {
+                        _accountClientVM.LoadData();
+                    }
+                    break;
+                case 3:
+                    {
+                        _accountEmployeesVM.LoadData();
+                    }
+                    break;
+                case 4:
+                    {
+                        _salesVM.LoadData();
+                    }
+                    break;
+                case 5:
+                    {
+                        _infoClientVM.LoadData();
+                    }
+                    break;
+                case 6:
+                    {
+                        _infoEmployeesVM.LoadData();
+                    }
+                    break;
+                default:
+                    break;
+
+            }
+        }
     }
 }

@@ -55,24 +55,29 @@ namespace CommunicationsShowroom.ViewModel
 
         public void DeleteData()
         {
-            if (SelectDevice != null)
+            if (!(SelectDevice is null))
             {
                 using (var db = new CommunicationsShowroomEntities())
                 {
-                    var device = db.Device.Find(SelectDevice.Id);
-                    if (device != null)
+                    var result = MessageBox.Show("Вы действительно хотите удалить запись\n" + "Это нельзя будет отменить", "Предупреждения", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    if (result == MessageBoxResult.Yes)
                     {
-                        db.Device.Remove(device);
-                        db.SaveChanges();
-                        SelectDevice = null;
-                        LoadData();
-                        MessageBox.Show("Объект успешно удален", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                        try
+                        {
+                            var entityForDelete = db.Device.Where(user => user.Id == SelectDevice.Id).FirstOrDefault();
+                            db.Device.Remove(entityForDelete);
+                            db.SaveChanges();
+                            LoadData();
+                            MessageBox.Show("Вы успешно удалили объект", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                        }
+
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Выберите объект для удаления", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
